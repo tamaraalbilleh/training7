@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>All Countries </h1>
+    <form action="/records" method="GET">
+    <input type="submit" value="go to my records">
+    </form>
+    <% data.forEach(item=>{%>
+        <section>
+            <h2><%= item.country %> </h2>
+            <h3><%=item.date %> </h3>
+            <p>confirmed cases : <%= item.confirmed %> </p>
+            <p>deaths : <%= item.deaths %> </p>
+            <p>recovered: <%=item.recovered %> </p>
+
+            <form action="/add" method="POST">
+            <input type="hidden" name="country" id="country" value="<%= item.country %>">
+
+            <input type="hidden" name="date" id="date" value="<%=item.date %>">
+
+            <input type="hidden" name="confirmed" id="confirmed" value="<%= item.confirmed %>">
+
+            <input type="hidden" name="deaths" id="deaths" value="<%= item.deaths %>">
+
+            <input type="hidden" name="recovered" id="recovered" value="<%=item.recovered %>">
+
+            <input type="submit" value="add-to-my-records">
+            </form>
+
+        </section>
+
+    <%}) %> 
+</body>
+</html>

@@ -1,0 +1,9 @@
+DROP TABLE IF EXISTS data;
+CREATE TABLE data(
+id SERIAL PRIMARY KEY,
+country VARCHAR (225),
+confirmed VARCHAR (225),
+deaths VARCHAR (225),
+recovered VARCHAR (225),
+date VARCHAR (225)
+)
